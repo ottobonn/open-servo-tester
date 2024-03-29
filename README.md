@@ -39,5 +39,5 @@ the result is extremely slow (so slow that the application will appear not to ru
 
 ### Credits and Thanks
 
-Thanks to @georgik for [ESP32 Spooky Maze Game](https://github.com/georgik/esp32-spooky-maze-game), which I used as
-starter code for this project.
+Thanks to [@georgik](https://github.com/georgik) for [ESP32 Spooky Maze
+Game](https://github.com/georgik/esp32-spooky-maze-game), which I used as starter code for this project.
