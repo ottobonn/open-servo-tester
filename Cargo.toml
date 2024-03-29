@@ -1,0 +1,39 @@
+[package]
+name = "esp32-c3-lcdkit-servo-tester"
+version = "1.0.0"
+authors = ["Travis Geis <travis@travisgeis.com>"]
+edition = "2021"
+license = "MIT"
+
+[target.riscv32imc-unknown-none-elf.dependencies]
+hal = { package = "esp-hal", version = "0.16", features = ["esp32c3", "eh1"] }
+esp-backtrace = { version = "0.9.0", features = [
+    "esp32c3",
+    "panic-handler",
+    "print-uart",
+] }
+esp-println = { version = "0.7.0", features = [ "esp32c3" ] }
+
+[dependencies]
+esp-alloc = "0.3.0"
+embedded-graphics = "0.8.0"
+embedded-graphics-framebuf = "0.5.0"
+embedded-hal = "1.0.0"
+display-interface = "0.5.0"
+display-interface-spi = "0.5.0"
+icm42670 = { git = "https://github.com/jessebraham/icm42670/" }
+mipidsi = { git = "https://github.com/almindor/mipidsi.git", branch = "master" }
+panic-halt = "0.2"
+shared-bus = { version = "0.3.0" }
+critical-section = "1.1.2"
+spi-dma-displayinterface = { path = "./spi-dma-displayinterface", features = ["esp32c3"] }
+micromath = { version = "2.1.0", features = ["vector", "quaternion"] }
+ryu = "1.0.17"
+
+[features]
+default = [ "esp32c3_ili9341" ]
+system_timer = []
+button_controls = []
+imu_controls = []
+esp32c3 = ["system_timer"]
+esp32c3_ili9341 = [ "esp32c3", "imu_controls" ]
